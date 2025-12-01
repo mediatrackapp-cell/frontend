@@ -22,8 +22,10 @@ load_dotenv(ROOT_DIR / '.env')
 
 # MongoDB connection
 mongo_url = os.environ['mongodb+srv://mediatrackapp:devki1984@cluster0.fxztraf.mongodb.net/?appName=Cluster0']
+db_name = os.environ['media_tracker']
 client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['media_tracker']]
+db = client[db_name]
+
 
 # Security
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
